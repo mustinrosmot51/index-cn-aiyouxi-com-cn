@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mustinrosmot51.github.io/index-cn-aiyouxi-com-cn/sitemap.xml
