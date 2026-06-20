@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赏金女王 · 故事与相信</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: #2d2d2d;
+            background-color: #f4f1ec;
+        }
+
+        /* 深色头图 ———— 故事帷幕 */
+        .hero {
+            background: linear-gradient(135deg, #1a1c23 0%, #2b2e3d 40%, #3f3740 100%);
+            color: #eae3d7;
+            padding: 5rem 1.5rem 4.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: radial-gradient(ellipse at 50% 100%, rgba(244, 241, 236, 0.8) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            color: #f5e9d8;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .sub {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #c8bcab;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .hero .sub strong {
+            color: #ebd5b3;
+            font-weight: 400;
+        }
+
+        /* 正文浅色区 */
+        .container {
+            max-width: 880px;
+            margin: -1.5rem auto 0;
+            padding: 0 1.8rem 3.5rem;
+            background: #faf8f5;
+            border-radius: 24px 24px 0 0;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.04);
+            position: relative;
+            z-index: 2;
+        }
+
+        .story-block {
+            padding: 2.5rem 0 0.8rem;
+        }
+
+        .story-block p {
+            margin-bottom: 1.6rem;
+            font-size: 1.05rem;
+            color: #3b3a37;
+        }
+
+        .story-block p.lead {
+            font-size: 1.2rem;
+            font-weight: 340;
+            color: #262522;
+            border-left: 4px solid #b8a07c;
+            padding-left: 1.2rem;
+            background: #f6f2eb;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* 特点卡片 ———— 温和自然 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 2.2rem 0 2rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 1.6rem 1.4rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03), 0 6px 16px rgba(0, 0, 0, 0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            border: 1px solid #ebe6de;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
+            border-color: #dacebe;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #3b2f24;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .feature-card h3::before {
+            content: "✦";
+            color: #b8a07c;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: #54514b;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #8b6f4c;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            transition: color 0.15s, background 0.15s;
+            font-weight: 450;
+        }
+
+        a:hover {
+            color: #5f4a31;
+            background: #f0e7db;
+            text-decoration: none;
+            border-radius: 2px;
+        }
+
+        /* FAQ 摘要 ———— 温和问与答 */
+        .faq-mini {
+            margin: 2.6rem 0 1.2rem;
+            background: #f6f1eb;
+            border-radius: 24px;
+            padding: 1.8rem 1.8rem 1.2rem;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.3rem;
+            font-weight: 380;
+            color: #3b3026;
+            letter-spacing: 0.02em;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed #dacfbf;
+            padding-bottom: 0.5rem;
+        }
+
+        .qa-item {
+            margin-bottom: 1.3rem;
+        }
+
+        .qa-item .q {
+            font-weight: 500;
+            color: #2e2620;
+            font-size: 1rem;
+        }
+
+        .qa-item .a {
+            color: #5c554b;
+            margin-top: 0.2rem;
+            padding-left: 0.5rem;
+            border-left: 2px solid #dacbbc;
+            padding-left: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .qa-item .a a {
+            word-break: keep-all;
+        }
+
+        /* 温和结尾 */
+        .gentle-end {
+            margin: 2.5rem 0 1.8rem;
+            padding: 1.6rem 1.8rem;
+            background: #ffffff;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #e2d8cc;
+            color: #40403b;
+        }
+
+        .gentle-end p {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .gentle-end .signature {
+            font-size: 0.9rem;
+            color: #91887c;
+            margin-top: 0.6rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 680px) {
+            .hero {
+                padding: 3.5rem 1.2rem 3.2rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .sub {
+                font-size: 1rem;
+            }
+            .container {
+                padding: 0 1.2rem 2.5rem;
+                margin-top: -0.8rem;
+                border-radius: 18px 18px 0 0;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .feature-card {
+                padding: 1.3rem 1rem;
+            }
+            .faq-mini {
+                padding: 1.4rem 1rem 0.8rem;
+            }
+            .gentle-end {
+                padding: 1.2rem 1rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero .sub {
+                font-size: 0.95rem;
+            }
+            .story-block p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 深色头幕：故事从这里开始 -->
+    <header class="hero">
+        <h1>她被称为赏金女王</h1>
+        <div class="sub">
+            一段口耳相传的叙述，一座静静讲述的网站。<br>
+            <strong>故事</strong> 比奖赏更长久。
+        </div>
+    </header>
+
+    <!-- 浅色正文区 -->
+    <main class="container">
+        <div class="story-block">
+            <p class="lead">
+                有些名字天生带着画面感。「<a href="https://chinese-queenofbounty.com">赏金女王</a>」就是其中之一——它让人想到荒野、勇气、智慧与不确定的回报。但究竟什么是赏金女王？这个网站又讲述着怎样的故事？
+            </p>
+            <p>
+                这个站点的初衷，并非追逐一时的热点，而是围绕「赏金女王」这个符号，从中文语境出发，提供一种相对完整的叙述。你可以把它理解为一个主题索引、一份文化速写，或者仅仅是一扇安静的窗——窗外的风景，由你自己辨认。
+            </p>
+            <p>
+                网站内容以介绍与说明为核心，不夸大、不承诺，只呈现那些经过整理的信息与视角。无论是好奇的浏览者，还是想获得背景参照的读者，都能在这里找到平实的落脚点。
+            </p>
+        </div>
+
+        <!-- 特点列表：四个温和切面 -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>标识的由来</h3>
+                <p>「赏金女王」这一称谓，融合了经典叙事中“赏金猎人”的冒险基因与“女王”所代表的独立气质。网站以此为主线，梳理相关文化脉络。</p>
+            </div>
+            <div class="feature-card">
+                <h3>可信的说明</h3>
+                <p>所有介绍文字均基于可查考的信息与普遍认知，不虚构传奇，不渲染神秘。力求在客观与趣味之间找到平衡。</p>
+            </div>
+            <div class="feature-card">
+                <h3>内容的边界</h3>
+                <p>网站不提供商业推广、下载链接或诱导性服务。它更像一本轻量级的数字小册，供你随手翻阅，然后带着自己的判断离开。</p>
+            </div>
+            <div class="feature-card">
+                <h3>持续的整理</h3>
+                <p>站内信息会随理解深入而更新。如果你发现值得补充的角度，欢迎通过站点预留的方式参与讨论——建设本身也是故事的一部分。</p>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要：从疑问到温和回答 -->
+        <div class="faq-mini">
+            <h2>一些常见的轻声提问</h2>
+            <div class="qa-item">
+                <div class="q">◈ 赏金女王是一个游戏角色吗？</div>
+                <div class="a">它常出现在某些虚构作品或民间再创作中，但本站不将它限定为某一具体角色。你可以把它理解为一个文化符号，承载着冒险、自主与未知的色彩。更多背景可留意 <a href="https://chinese-queenofbounty.com">赏金女王</a> 的介绍页面。</div>
+            </div>
+            <div class="qa-item">
+                <div class="q">◈ 网站是否与任何商业品牌有关？</div>
+                <div class="a">无关。该站点属于独立的主题介绍项目，不隶属于任何公司或组织，也不推销任何商品或服务。内容以知识分享与兴趣梳理为边界。</div>
+            </div>
+            <div class="qa-item">
+                <div class="q">◈ 为什么叫“故事叙述式”页面？</div>
+                <div class="a">因为信息也可以用温度来传递。比起干巴巴的列举，我们选择用开场短句、承接段落、特点列表与温和结尾来编织内容，让阅读更像一次小声的对话。</div>
+            </div>
+        </div>
+
+        <!-- 温和结尾：像朋友合上笔记本 -->
+        <div class="gentle-end">
+            <p>每一次打开，都是一次短暂的遇见。</p>
+            <p>感谢你花时间听这个关于「赏金女王」的小小叙述。</p>
+            <div class="signature">—— 站点编辑 · 2025年</div>
+        </div>
+    </main>
+</body>
+</html>
