@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>赏金女王 · 产品说明与场景指南</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f2f7f6;
+      color: #1e2b2a;
+      line-height: 1.6;
+      padding: 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page {
+      max-width: 800px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 8px 30px rgba(0, 60, 50, 0.06);
+      padding: 2rem 1.8rem 2.5rem;
+      margin: 1.5rem 0 3rem;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #1b4e48;
+      margin-bottom: 0.2rem;
+      border-left: 6px solid #3ea69a;
+      padding-left: 1rem;
+    }
+    .subhead {
+      font-size: 0.95rem;
+      color: #4f706a;
+      margin: 0.2rem 0 2.2rem 1.6rem;
+      border-bottom: 1px dashed #c5dbd6;
+      padding-bottom: 0.8rem;
+    }
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin: 2.2rem 0 2rem;
+    }
+    .card {
+      background: #f6fcfb;
+      border-radius: 24px;
+      padding: 1.4rem 1.2rem 1.6rem;
+      border: 1px solid #d3e7e2;
+      box-shadow: 0 2px 6px rgba(60, 130, 115, 0.04);
+      transition: box-shadow 0.2s, transform 0.1s;
+    }
+    .card:hover {
+      box-shadow: 0 6px 14px rgba(40, 110, 95, 0.08);
+      transform: translateY(-2px);
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #1b5c54;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .card h3::before {
+      content: "▹";
+      color: #3ea69a;
+      font-weight: 300;
+      font-size: 1.3rem;
+    }
+    .card p {
+      font-size: 0.92rem;
+      color: #2d4a44;
+    }
+    .highlight-block {
+      background: #e8f3ef;
+      border-radius: 20px;
+      padding: 1.6rem 1.8rem;
+      margin: 1.8rem 0 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.3rem 0.6rem;
+    }
+    .highlight-block p {
+      display: inline;
+      font-size: 1rem;
+    }
+    .accent-link {
+      color: #1b6b5f;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px solid #3ea69a;
+      padding-bottom: 0.08rem;
+    }
+    .accent-link:hover {
+      background: #cae3de;
+    }
+    .scene-list {
+      background: #ffffff;
+      border: 1px solid #dcebe6;
+      border-radius: 24px;
+      padding: 1.2rem 1.5rem 1.5rem;
+      margin: 1.8rem 0;
+    }
+    .scene-list h4 {
+      font-weight: 500;
+      color: #1e524a;
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+    }
+    .scene-list ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .scene-list li {
+      padding: 0.35rem 0;
+      border-bottom: 1px dotted #c3dbd3;
+      font-size: 0.94rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .scene-list li::before {
+      content: "●";
+      color: #3ea69a;
+      font-size: 0.6rem;
+      margin-top: 0.3rem;
+      flex-shrink: 0;
+    }
+    .faq-mini {
+      background: #f4faf8;
+      border-radius: 20px;
+      padding: 1.5rem 1.6rem;
+      margin-top: 2rem;
+    }
+    .faq-mini details {
+      margin: 0.6rem 0;
+      border-bottom: 1px solid #c7ddd6;
+      padding-bottom: 0.6rem;
+    }
+    .faq-mini details:last-of-type {
+      border-bottom: none;
+    }
+    .faq-mini summary {
+      font-weight: 500;
+      color: #144942;
+      cursor: pointer;
+      padding: 0.2rem 0;
+      font-size: 0.98rem;
+    }
+    .faq-mini summary::-webkit-details-marker { color: #3ea69a; }
+    .faq-mini p {
+      font-size: 0.9rem;
+      color: #2a534b;
+      margin-top: 0.5rem;
+      padding-left: 0.5rem;
+    }
+    .disclaimer-note {
+      font-size: 0.78rem;
+      color: #5f827a;
+      border-top: 1px solid #cfe3dd;
+      padding-top: 1.2rem;
+      margin-top: 2rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+    @media (max-width: 520px) {
+      .page { padding: 1.5rem 1rem 2rem; }
+      h1 { font-size: 1.7rem; padding-left: 0.8rem; }
+      .subhead { margin-left: 0.9rem; font-size: 0.85rem; }
+      .grid-cards { grid-template-columns: 1fr; gap: 1rem; }
+      .highlight-block { padding: 1.2rem; flex-direction: column; align-items: flex-start; }
+      .faq-mini { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>赏金女王</h1>
+    <div class="subhead">日常查询 · 对照参考 · 延伸阅读</div>
+
+    <p style="margin-bottom: 0.8rem;">在日常信息检索或内容对照场景中，很多用户会反复检索特定主题的说明、特征与适用情境。<strong>赏金女王（Queen of Bounty）</strong>作为一类带有主题色彩的叙事概念，常出现在内容创作者、策略爱好者或休闲娱乐用户的对照清单里。以下从摘要、功能亮点、常见使用场景及参考提示几个方面展开，便于快速建立认知。</p>
+
+    <!-- 网格卡片：产品亮点 -->
+    <div class="grid-cards">
+      <div class="card">
+        <h3>主题对照</h3>
+        <p>围绕宝藏与悬赏的核心叙事，视觉和机制都带有浓郁的海洋冒险氛围。适合作为主题拆解、角色对照或氛围参考。</p>
+      </div>
+      <div class="card">
+        <h3>结构特征</h3>
+        <p>采用多阶段奖励结构，每次触发对应不同层级的反馈。这种递进模式在策略拆解和概率推演中经常被用作案例。</p>
+      </div>
+      <div class="card">
+        <h3>视觉语言</h3>
+        <p>蓝绿调与金色点缀形成明确识别色，角色与场景设计强调「发现」与「回馈」的情绪线索。适合视觉参考或风格分析。</p>
+      </div>
+      <div class="card">
+        <h3>适用媒介</h3>
+        <p>无论是桌面端还是移动设备，界面均经过响应式适配，信息层级清晰，适合碎片时间的信息查阅或快速对照。</p>
+      </div>
+    </div>
+
+    <!-- 嵌入链接的句子 -->
+    <div class="highlight-block">
+      <p>如果你正在寻找更完整的背景设定、机制说明或创作参考，可以进一步查阅</p>
+      <a href="https://queenofbounty-pg.com" class="accent-link">赏金女王</a>
+      <p>的相关介绍与资料页，那里汇总了更详尽的主题拆解与版本记录。</p>
+    </div>
+
+    <!-- 使用场景 / 延伸阅读场景 -->
+    <div class="scene-list">
+      <h4>常见对照与延伸阅读场景</h4>
+      <ul>
+        <li>需要快速确认主题特征与核心元素，用于内容整理或简报准备。</li>
+        <li>对比不同阶段奖励结构，进行策略笔记或机制梳理。</li>
+        <li>从视觉风格角度提取配色、角色符号等设计参考。</li>
+        <li>在跨平台体验时，了解响应式布局与信息呈现方式。</li>
+        <li>作为案例之一，用于产品叙事、主题包装或用户反馈研究。</li>
+      </ul>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <h4 style="font-weight:500; color:#1b524b; margin-bottom:0.6rem;">常见参考提示</h4>
+      <details>
+        <summary>主题和「赏金女王」的核心关联是什么？</summary>
+        <p>「赏金」在此语境中指向寻宝与悬赏机制，「女王」则暗示角色主导地位与多阶段反馈。整体围绕发现、挑战与收获展开，适合作为主题对照原点。</p>
+      </details>
+      <details>
+        <summary>可以将其用于策略分析或内容创作吗？</summary>
+        <p>可以。它的结构特征（递进奖励、视觉符号）常被用作解说案例、主题拆解或用户行为讨论的参照。建议结合自身需求进行信息筛选。</p>
+      </details>
+      <details>
+        <summary>访问页面是否需要特殊设置？</summary>
+        <p>标准浏览器均可正常加载，移动端与桌面端均经过基础适配。部分交互细节可能因浏览器版本略有差异，建议使用现代浏览器以获得完整版式。</p>
+      </details>
+    </div>
+
+    <!-- 克制说明 -->
+    <div class="disclaimer-note">
+      本页仅为内容说明与场景参考，不构成任何形式的使用承诺或效果保证。所有特征描述均基于公开信息与主题拆解，请用户结合自身判断合理参考。
+    </div>
+  </div>
+</body>
+</html>
